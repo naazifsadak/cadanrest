@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Cadan restaurant — Hamarweyne, Mogadishu, Somalia</title>
+    <meta name="description" content="Cadan restaurant — Fast foods, Lung foods, Cafette. Located in Hamarweyne, Mogadishu, Somalia." />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root{
+            --bg:#fff7f2;
+            --accent:#c0392b;
+            --muted:#6b6b6b;
+            --card:#fff;
+            --glass: rgba(255,255,255,0.75);
+            --maxw:1100px;
+            font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+        }
+        *{box-sizing:border-box}
+        html,body{height:100%}
+        body{
+            margin:0;
+            background:
+                radial-gradient(1200px 600px at 10% 10%, rgba(240,140,120,0.06), transparent 8%),
+                linear-gradient(180deg,#fff 0%, #fffaf6 100%);
+            color:#222;
+            -webkit-font-smoothing:antialiased;
+            -moz-osx-font-smoothing:grayscale;
+            line-height:1.45;
+        }
+        .container{max-width:var(--maxw);margin:0 auto;padding:28px;}
+        header{
+            display:flex;align-items:center;justify-content:space-between;gap:16px;
+            padding:12px 0;
+        }
+        .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
+        .logo{
+            width:56px;height:56px;border-radius:12px;
+            background:linear-gradient(135deg,var(--accent),#e67e22);
+            display:grid;place-items:center;color:#fff;font-weight:700;font-size:18px;
+            box-shadow:0 8px 24px rgba(192,57,43,0.18);
+            letter-spacing:0.6px;
+        }
+        nav{display:flex;gap:12px;align-items:center}
+        nav a{color:var(--muted);text-decoration:none;padding:8px;border-radius:10px;font-weight:600}
+        nav a:hover{background:var(--card);color:#111}
+        .cta{background:var(--accent);color:white;padding:10px 14px;border-radius:12px;text-decoration:none;box-shadow:0 6px 18px rgba(192,57,43,0.15)}
+        .hero{
+            margin:18px 0 28px;padding:28px;border-radius:14px;
+            display:grid;grid-template-columns:1fr 360px;gap:20px;align-items:center;
+            box-shadow:0 18px 50px rgba(0,0,0,0.06);
+            position:relative;
+            overflow:hidden;
+            background:linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.85));
+        }
+        .hero::before{
+            content:"";
+            position:absolute;inset:0;
+            background-image: url("https://images.unsplash.com/photo-1533777324565-a040eb52fac2?auto=format&fit=crop&w=1600&q=80");
+            background-size:cover;background-position:center;
+            filter:contrast(0.9) saturate(1.05) blur(2px);
+            transform:scale(1.06);
+            opacity:0.22;
+            pointer-events:none;
+        }
+        .hero > *{position:relative}
+        .hero h1{margin:0;font-size:30px;line-height:1.05}
+        .hero p{color:var(--muted);margin:10px 0 0}
+        .card{background:var(--card);padding:16px;border-radius:12px}
+        .glass-card{background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.95)); box-shadow: 0 10px 30px rgba(0,0,0,0.06)}
+        .info small{color:var(--muted);}
+
+        .hours{margin-top:10px}
+        .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:20px}
+        .menu-section{margin-top:28px}
+        .menu-section h2{margin:0 0 10px;font-size:20px}
+        .menu-item{display:flex;gap:12px;align-items:flex-start;padding:12px;border-radius:12px;background:linear-gradient(180deg,#fff,#fff);box-shadow:0 8px 26px rgba(0,0,0,0.04)}
+        .menu-item img{width:100px;height:72px;object-fit:cover;border-radius:10px;flex-shrink:0}
+        .muted{color:var(--muted);font-size:13px}
+        .price{font-weight:700;color:var(--accent)}
+        footer{padding:20px 0;margin-top:28px;border-top:1px solid #f6f6f6;color:var(--muted);font-size:14px}
+        .map{width:100%;height:220px;border-radius:10px;border:0}
+        form{display:grid;gap:8px}
+        input,textarea,button{padding:10px;border-radius:10px;border:1px solid #eee;font:inherit}
+        button{background:var(--accent);color:#fff;border:none;cursor:pointer}
+        .flex{display:flex;gap:12px;align-items:center}
+        .gallery-img{width:100%;height:160px;object-fit:cover;border-radius:10px;display:block;transition:transform .28s ease, box-shadow .28s ease}
+        .gallery-card{padding:6px;background:transparent;border-radius:12px}
+        .gallery-card:hover .gallery-img{transform:scale(1.05);box-shadow:0 18px 40px rgba(0,0,0,0.12)}
+        .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+        .badge{display:inline-block;background:rgba(255,255,255,0.85);padding:6px 10px;border-radius:999px;font-weight:600;font-size:13px;box-shadow:0 6px 18px rgba(0,0,0,0.06)}
+        .hero-cta{margin-top:14px;display:flex;gap:10px;align-items:center}
+        .hero-meta{display:flex;gap:10px;align-items:center;margin-top:8px;color:var(--muted);font-size:14px}
+
+        /* lightbox */
+        .lightbox{
+            position:fixed;inset:0;display:none;place-items:center;background:rgba(0,0,0,0.7);z-index:1200;
+        }
+        .lightbox.open{display:grid}
+        .lightbox img{max-width:92%;max-height:86%;border-radius:10px;box-shadow:0 20px 60px rgba(0,0,0,0.6)}
+        .lightbox .caption{color:#fff;margin-top:12px;text-align:center;font-size:14px}
+        .lightbox .close{position:absolute;top:18px;right:18px;color:#fff;font-size:26px;background:transparent;border:none;cursor:pointer}
+        .lightbox .nav{position:absolute;top:50%;transform:translateY(-50%);color:#fff;font-size:32px;background:transparent;border:none;cursor:pointer;padding:10px}
+        .lightbox .prev{left:14px}
+        .lightbox .next{right:14px}
+
+        @media (max-width:1100px){
+            .gallery-grid{grid-template-columns:repeat(3,1fr)}
+        }
+        @media (max-width:880px){
+            .hero{grid-template-columns:1fr; padding:18px}
+            .hero .card{order:2}
+            .gallery-grid{grid-template-columns:repeat(2,1fr)}
+        }
+        @media (max-width:520px){
+            .gallery-grid{grid-template-columns:repeat(1,1fr)}
+            nav{display:none}
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a class="brand" href="#">
+                <!-- improved SVG logo -->
+                <div class="logo" aria-hidden="false" title="Cadan restaurant logo">
+                    <svg width="34" height="34" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                        <rect width="48" height="48" rx="10" fill="rgba(255,255,255,0.08)"/>
+                        <g transform="translate(8 8)" fill="#fff" stroke="none">
+                            <!-- fork -->
+                            <rect x="2" y="0" width="2" height="18" rx="1" />
+                            <rect x="6" y="0" width="2" height="12" rx="1" />
+                            <rect x="10" y="0" width="2" height="18" rx="1" />
+                            <!-- plate arc -->
+                            <path d="M24 16c0 4.418-5.373 8-12 8S0 20.418 0 16" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                        </g>
+                    </svg>
+                </div>
+                <div>
+                    <div style="font-weight:700">Cadan restaurant</div>
+                    <div class="muted" style="font-size:12px">Hamarweyne, Mogadishu · Somalia</div>
+                </div>
+            </a>
+            <nav>
+                <a href="#menu">Menu</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <a class="cta" href="#order">Order</a>
+            </nav>
+        </header>
+
+        <section class="hero">
+            <div>
+                <div class="badge">Locally loved • Open daily</div>
+                <h1>Warm food. Fast service. Local flavors.</h1>
+                <p class="muted">Cadan restaurant serves fast foods, lung foods, and a cozy cafette experience in the heart of Hamarweyne, Mogadishu. Traditional favorites and quick bites — fresh every day.</p>
+
+                <div class="hero-cta">
+                    <a class="cta" href="#menu">See menu</a>
+                    <a class="badge muted" href="#gallery">Gallery</a>
+                </div>
+
+                <div class="menu-section" id="menu">
+                    <h2>Our offerings</h2>
+                    <div class="grid">
+                        <div class="card glass-card">
+                            <strong>Fast Foods</strong>
+                            <div class="muted" style="margin-top:6px">Burgers, fried chicken, fries, sandwiches — quick and tasty.</div>
+                        </div>
+                        <div class="card glass-card">
+                            <strong>Lung Foods</strong>
+                            <div class="muted" style="margin-top:6px">(Local / traditional specialties) Hearty plates prepared with care.</div>
+                        </div>
+                        <div class="card glass-card">
+                            <strong>Cafette</strong>
+                            <div class="muted" style="margin-top:6px">Coffee, tea, pastries and light snacks — relax and enjoy.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <aside class="card">
+                <div class="info">
+                    <div style="font-weight:700">Visit us</div>
+                    <div class="muted">Hamarweyne, Mogadishu, Somalia</div>
+                    <div class="hours">
+                        <small class="muted">Hours</small>
+                        <div style="margin-top:6px">Everyday · 09:00 — 23:00</div>
+                    </div>
+                    <div style="margin-top:12px">
+                        <a class="muted" href="https://www.google.com/maps/search/?api=1&query=Hamarweyne%20Mogadishu%20Somalia" target="_blank" rel="noopener">Open in Google Maps</a>
+                    </div>
+                    <div style="margin-top:12px" class="muted">Phone: +252 6X XXX XXXX</div>
+                </div>
+            </aside>
+        </section>
+
+        <section>
+            <h2>Menu highlights</h2>
+            <div class="grid" style="margin-top:12px">
+                <div class="menu-item">
+                    <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=800&q=70" alt="Burger">
+                    <div>
+                        <div style="font-weight:700">Classic Burger</div>
+                        <div class="muted">Beef patty, lettuce, tomato, house sauce</div>
+                        <div class="price">5000 SOS</div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <img src="https://images.unsplash.com/photo-1604908177522-7b0c5dd8b3b0?auto=format&fit=crop&w=800&q=70" alt="Fried chicken">
+                    <div>
+                        <div style="font-weight:700">Crispy Fried Chicken</div>
+                        <div class="muted">Spiced, crunchy, served with fries</div>
+                        <div class="price">6000 SOS</div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=70" alt="Local dish">
+                    <div>
+                        <div style="font-weight:700">Lung Foods Special</div>
+                        <div class="muted">Chef's local plate — ask for today's special</div>
+                        <div class="price">Varies</div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=70" alt="Cafette coffee">
+                    <div>
+                        <div style="font-weight:700">Cafette Coffee</div>
+                        <div class="muted">Freshly brewed — espresso & specialty coffees</div>
+                        <div class="price">1000 SOS</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- New gallery with nicer sample images -->
+        <section id="gallery" class="menu-section">
+            <h2>Gallery</h2>
+            <div class="gallery-grid" style="margin-top:12px">
+                <div class="gallery-card card">
+                    <img class="gallery-img" src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=900&q=80" alt="Interior view of Cadan restaurant" data-full="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=80" data-caption="Cozy interior seating">
+                </div>
+                <div class="gallery-card card">
+                    <img class="gallery-img" src="https://images.unsplash.com/photo-1543353071-087092ec393a?auto=format&fit=crop&w=900&q=80" alt="Dish example at Cadan restaurant" data-full="https://images.unsplash.com/photo-1543353071-087092ec393a?auto=format&fit=crop&w=1600&q=80" data-caption="Signature dish">
+                </div>
+                <div class="gallery-card card">
+                    <img class="gallery-img" src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=900&q=80" alt="Coffee and pastries" data-full="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=1600&q=80" data-caption="Coffee & pastries">
+                </div>
+                <div class="gallery-card card">
+                    <img class="gallery-img" src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80" alt="Takeaway and packaging" data-full="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=80" data-caption="Takeaway packaging">
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="menu-section">
+            <h2>About Cadan restaurant</h2>
+            <p class="muted">Cadan restaurant provides quick and friendly service to locals and visitors in Hamarweyne. We focus on simple, well-seasoned fast foods, comforting lung foods, and a small cafette for coffee and snacks. We aim for fresh ingredients, fair prices, and a clean welcoming space.</p>
+        </section>
+
+        <section id="contact" class="menu-section">
+            <h2>Contact & Reservation</h2>
+            <div class="grid" style="align-items:start">
+                <div class="card">
+                    <iframe class="map" src="https://www.google.com/maps?q=Hamarweyne+Mogadishu+Somalia&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Cadan restaurant location"></iframe>
+                </div>
+
+                <div class="card">
+                    <form id="contactForm" action="mailto:info@cadan-restaurant.example" method="post" enctype="text/plain">
+                        <label>
+                            <div class="muted">Name</div>
+                            <input type="text" name="name" required placeholder="Your name">
+                        </label>
+                        <label>
+                            <div class="muted">Phone or Email</div>
+                            <input type="text" name="contact" required placeholder="Phone or email">
+                        </label>
+                        <label>
+                            <div class="muted">Message</div>
+                            <textarea name="message" rows="4" placeholder="Reservation details or questions"></textarea>
+                        </label>
+                        <div class="flex" style="margin-top:8px">
+                            <button type="submit">Send</button>
+                            <a class="muted" href="tel:+2526XXXXXXXX" style="text-decoration:none;padding:8px 10px;border-radius:8px;border:1px solid #eee">Call us</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+                <div>© <strong>Cadan restaurant</strong> — Hamarweyne, Mogadishu</div>
+                <div class="muted">Made locally · Open daily 09:00–23:00</div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-label="Image preview">
+        <button class="close" aria-label="Close">&times;</button>
+        <button class="nav prev" aria-label="Previous" title="Previous">&#8249;</button>
+        <img src="" alt="">
+        <div class="caption"></div>
+        <button class="nav next" aria-label="Next" title="Next">&#8250;</button>
+    </div>
+
+    <script>
+        // confirm before submitting mailto form
+        document.getElementById('contactForm').addEventListener('submit', function(e){
+            var msg = this.message.value.trim();
+            if(!msg){
+                if(!confirm('Send contact without message?')){ e.preventDefault(); }
+            }
+        });
+
+        // lightweight gallery lightbox
+        (function(){
+            var imgs = Array.from(document.querySelectorAll('.gallery-img'));
+            var lb = document.getElementById('lightbox');
+            var lbImg = lb.querySelector('img');
+            var caption = lb.querySelector('.caption');
+            var closeBtn = lb.querySelector('.close');
+            var prevBtn = lb.querySelector('.prev');
+            var nextBtn = lb.querySelector('.next');
+            var currentIndex = -1;
+
+            function open(index){
+                var el = imgs[index];
+                if(!el) return;
+                lbImg.src = el.dataset.full || el.src;
+                lbImg.alt = el.alt || '';
+                caption.textContent = el.dataset.caption || el.alt || '';
+                lb.classList.add('open');
+                lb.setAttribute('aria-hidden','false');
+                currentIndex = index;
+            }
+            function close(){
+                lb.classList.remove('open');
+                lb.setAttribute('aria-hidden','true');
+                lbImg.src = '';
+                currentIndex = -1;
+            }
+            function showNext(delta){
+                if(currentIndex < 0 || imgs.length === 0) return;
+                var next = (currentIndex + delta + imgs.length) % imgs.length;
+                open(next);
+            }
+
+            imgs.forEach(function(img, i){
+                img.style.cursor = 'zoom-in';
+                img.addEventListener('click', function(){ open(i); });
+            });
+            closeBtn.addEventListener('click', close);
+            lb.addEventListener('click', function(e){
+                if(e.target === lb) close();
+            });
+            document.addEventListener('keydown', function(e){
+                if(lb.classList.contains('open')){
+                    if(e.key === 'Escape') close();
+                    if(e.key === 'ArrowRight') showNext(1);
+                    if(e.key === 'ArrowLeft') showNext(-1);
+                }
+            });
+            prevBtn.addEventListener('click', function(e){ e.stopPropagation(); showNext(-1); });
+            nextBtn.addEventListener('click', function(e){ e.stopPropagation(); showNext(1); });
+        })();
+    </script>
+</body>
+</html>
