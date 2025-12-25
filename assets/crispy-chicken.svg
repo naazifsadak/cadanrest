@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="title">
+  <title id="title">Crispy Fried Chicken</title>
+  <rect width="100%" height="100%" fill="#fff6ea"/>
+  <g transform="translate(200,120) scale(1.6)">
+    <!-- drumstick base -->
+    <path d="M190 30c30 30 30 86 0 116-30 30-86 30-116 0-30-30-30-86 0-116 30-30 86-30 116 0z" fill="#f4a261" stroke="#e76f51" stroke-width="6"/>
+    <!-- crispy texture -->
+    <g fill="#f8d29a">
+      <circle cx="130" cy="75" r="6"/>
+      <circle cx="150" cy="50" r="5"/>
+      <circle cx="165" cy="90" r="6"/>
+      <circle cx="120" cy="60" r="4"/>
+      <circle cx="145" cy="70" r="3"/>
+    </g>
+    <!-- bone -->
+    <rect x="210" y="90" width="24" height="140" rx="12" fill="#fff" stroke="#e9f8fd" stroke-width="4" transform="rotate(-20 222 160)"/>
+    <g transform="translate(232,210) rotate(-20)">
+      <circle cx="0" cy="0" r="16" fill="#fff" stroke="#e9f8fd" stroke-width="4"/>
+      <circle cx="28" cy="0" r="16" fill="#fff" stroke="#e9f8fd" stroke-width="4"/>
+    </g>
+  </g>
+  <text x="50%" y="92%" text-anchor="middle" fill="#6b7280" font-family="Inter, Arial, Helvetica, sans-serif" font-size="28">Crispy Fried Chicken</text>
+</svg>

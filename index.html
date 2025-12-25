@@ -1,372 +1,253 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Cadan restaurant — Hamarweyne, Mogadishu, Somalia</title>
-    <meta name="description" content="Cadan restaurant — Fast foods, Lung foods, Cafette. Located in Hamarweyne, Mogadishu, Somalia." />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root{
-            --bg:#fff7f2;
-            --accent:#c0392b;
-            --muted:#6b6b6b;
-            --card:#fff;
-            --glass: rgba(255,255,255,0.75);
-            --maxw:1100px;
-            font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-        }
-        *{box-sizing:border-box}
-        html,body{height:100%}
-        body{
-            margin:0;
-            background:
-                radial-gradient(1200px 600px at 10% 10%, rgba(240,140,120,0.06), transparent 8%),
-                linear-gradient(180deg,#fff 0%, #fffaf6 100%);
-            color:#222;
-            -webkit-font-smoothing:antialiased;
-            -moz-osx-font-smoothing:grayscale;
-            line-height:1.45;
-        }
-        .container{max-width:var(--maxw);margin:0 auto;padding:28px;}
-        header{
-            display:flex;align-items:center;justify-content:space-between;gap:16px;
-            padding:12px 0;
-        }
-        .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
-        .logo{
-            width:56px;height:56px;border-radius:12px;
-            background:linear-gradient(135deg,var(--accent),#e67e22);
-            display:grid;place-items:center;color:#fff;font-weight:700;font-size:18px;
-            box-shadow:0 8px 24px rgba(192,57,43,0.18);
-            letter-spacing:0.6px;
-        }
-        nav{display:flex;gap:12px;align-items:center}
-        nav a{color:var(--muted);text-decoration:none;padding:8px;border-radius:10px;font-weight:600}
-        nav a:hover{background:var(--card);color:#111}
-        .cta{background:var(--accent);color:white;padding:10px 14px;border-radius:12px;text-decoration:none;box-shadow:0 6px 18px rgba(192,57,43,0.15)}
-        .hero{
-            margin:18px 0 28px;padding:28px;border-radius:14px;
-            display:grid;grid-template-columns:1fr 360px;gap:20px;align-items:center;
-            box-shadow:0 18px 50px rgba(0,0,0,0.06);
-            position:relative;
-            overflow:hidden;
-            background:linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.85));
-        }
-        .hero::before{
-            content:"";
-            position:absolute;inset:0;
-            background-image: url("https://images.unsplash.com/photo-1533777324565-a040eb52fac2?auto=format&fit=crop&w=1600&q=80");
-            background-size:cover;background-position:center;
-            filter:contrast(0.9) saturate(1.05) blur(2px);
-            transform:scale(1.06);
-            opacity:0.22;
-            pointer-events:none;
-        }
-        .hero > *{position:relative}
-        .hero h1{margin:0;font-size:30px;line-height:1.05}
-        .hero p{color:var(--muted);margin:10px 0 0}
-        .card{background:var(--card);padding:16px;border-radius:12px}
-        .glass-card{background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.95)); box-shadow: 0 10px 30px rgba(0,0,0,0.06)}
-        .info small{color:var(--muted);}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadan Restaurant | Hamarweyne, Mogadishu</title>
+    <meta name="description"
+        content="Experience the finest lung foods, fast foods, and cafe in Mogadishu. Fresh, local, and delicious.">
 
-        .hours{margin-top:10px}
-        .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:20px}
-        .menu-section{margin-top:28px}
-        .menu-section h2{margin:0 0 10px;font-size:20px}
-        .menu-item{display:flex;gap:12px;align-items:flex-start;padding:12px;border-radius:12px;background:linear-gradient(180deg,#fff,#fff);box-shadow:0 8px 26px rgba(0,0,0,0.04)}
-        .menu-item img{width:100px;height:72px;object-fit:cover;border-radius:10px;flex-shrink:0}
-        .muted{color:var(--muted);font-size:13px}
-        .price{font-weight:700;color:var(--accent)}
-        footer{padding:20px 0;margin-top:28px;border-top:1px solid #f6f6f6;color:var(--muted);font-size:14px}
-        .map{width:100%;height:220px;border-radius:10px;border:0}
-        form{display:grid;gap:8px}
-        input,textarea,button{padding:10px;border-radius:10px;border:1px solid #eee;font:inherit}
-        button{background:var(--accent);color:#fff;border:none;cursor:pointer}
-        .flex{display:flex;gap:12px;align-items:center}
-        .gallery-img{width:100%;height:160px;object-fit:cover;border-radius:10px;display:block;transition:transform .28s ease, box-shadow .28s ease}
-        .gallery-card{padding:6px;background:transparent;border-radius:12px}
-        .gallery-card:hover .gallery-img{transform:scale(1.05);box-shadow:0 18px 40px rgba(0,0,0,0.12)}
-        .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-        .badge{display:inline-block;background:rgba(255,255,255,0.85);padding:6px 10px;border-radius:999px;font-weight:600;font-size:13px;box-shadow:0 6px 18px rgba(0,0,0,0.06)}
-        .hero-cta{margin-top:14px;display:flex;gap:10px;align-items:center}
-        .hero-meta{display:flex;gap:10px;align-items:center;margin-top:8px;color:var(--muted);font-size:14px}
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@500;600;700&display=swap"
+        rel="stylesheet">
 
-        /* lightbox */
-        .lightbox{
-            position:fixed;inset:0;display:none;place-items:center;background:rgba(0,0,0,0.7);z-index:1200;
-        }
-        .lightbox.open{display:grid}
-        .lightbox img{max-width:92%;max-height:86%;border-radius:10px;box-shadow:0 20px 60px rgba(0,0,0,0.6)}
-        .lightbox .caption{color:#fff;margin-top:12px;text-align:center;font-size:14px}
-        .lightbox .close{position:absolute;top:18px;right:18px;color:#fff;font-size:26px;background:transparent;border:none;cursor:pointer}
-        .lightbox .nav{position:absolute;top:50%;transform:translateY(-50%);color:#fff;font-size:32px;background:transparent;border:none;cursor:pointer;padding:10px}
-        .lightbox .prev{left:14px}
-        .lightbox .next{right:14px}
-
-        @media (max-width:1100px){
-            .gallery-grid{grid-template-columns:repeat(3,1fr)}
-        }
-        @media (max-width:880px){
-            .hero{grid-template-columns:1fr; padding:18px}
-            .hero .card{order:2}
-            .gallery-grid{grid-template-columns:repeat(2,1fr)}
-        }
-        @media (max-width:520px){
-            .gallery-grid{grid-template-columns:repeat(1,1fr)}
-            nav{display:none}
-        }
-    </style>
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-    <div class="container">
-        <header>
-            <a class="brand" href="#">
-                <!-- improved SVG logo -->
-                <div class="logo" aria-hidden="false" title="Cadan restaurant logo">
-                    <svg width="34" height="34" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-                        <rect width="48" height="48" rx="10" fill="rgba(255,255,255,0.08)"/>
-                        <g transform="translate(8 8)" fill="#fff" stroke="none">
-                            <!-- fork -->
-                            <rect x="2" y="0" width="2" height="18" rx="1" />
-                            <rect x="6" y="0" width="2" height="12" rx="1" />
-                            <rect x="10" y="0" width="2" height="18" rx="1" />
-                            <!-- plate arc -->
-                            <path d="M24 16c0 4.418-5.373 8-12 8S0 20.418 0 16" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                        </g>
-                    </svg>
-                </div>
-                <div>
-                    <div style="font-weight:700">Cadan restaurant</div>
-                    <div class="muted" style="font-size:12px">Hamarweyne, Mogadishu · Somalia</div>
-                </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo-wrapper">
+                <img src="assets/logo.png" alt="Cadan Logo" class="logo-img">
+                <span>Cadan Restaurant</span>
             </a>
-            <nav>
+
+            <nav class="nav-links">
                 <a href="#menu">Menu</a>
-                <a href="#about">About</a>
-                <a href="#contact">Contact</a>
-                <a class="cta" href="#order">Order</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#location">Find Us</a>
             </nav>
-        </header>
 
-        <section class="hero">
-            <div>
-                <div class="badge">Locally loved • Open daily</div>
-                <h1>Warm food. Fast service. Local flavors.</h1>
-                <p class="muted">Cadan restaurant serves fast foods, lung foods, and a cozy cafette experience in the heart of Hamarweyne, Mogadishu. Traditional favorites and quick bites — fresh every day.</p>
+            <div class="header-actions">
+                <button class="btn btn-outline" id="header-contact-btn"
+                    style="border: 1px solid rgba(0,0,0,0.1); margin-right: 8px;">Contact</button>
+                <button class="btn btn-primary" id="cart-btn">
+                    <span class="cart-btn-wrapper">
+                        Order Now
+                        <span id="cart-count" class="cart-count">0</span>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </header>
 
-                <div class="hero-cta">
-                    <a class="cta" href="#menu">See menu</a>
-                    <a class="badge muted" href="#gallery">Gallery</a>
-                </div>
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container hero-content animate-fade-in">
+            <span class="badge">Locally Loved in Hamarweyne</span>
+            <h1>Warm Food. Fast Service.<br>Local Flavors.</h1>
+            <p>From traditional Lung Foods to crispy Fast Foods and premium Cafette coffee. We bring the heart of
+                Mogadishu to your table.</p>
+            <div style="display: flex; gap: 16px; justify-content: center;">
+                <a href="#menu" class="btn btn-primary">Browse Menu</a>
+                <button class="btn btn-outline" id="hero-contact-btn">Contact</button>
+            </div>
+        </div>
+    </section>
 
-                <div class="menu-section" id="menu">
-                    <h2>Our offerings</h2>
-                    <div class="grid">
-                        <div class="card glass-card">
-                            <strong>Fast Foods</strong>
-                            <div class="muted" style="margin-top:6px">Burgers, fried chicken, fries, sandwiches — quick and tasty.</div>
-                        </div>
-                        <div class="card glass-card">
-                            <strong>Lung Foods</strong>
-                            <div class="muted" style="margin-top:6px">(Local / traditional specialties) Hearty plates prepared with care.</div>
-                        </div>
-                        <div class="card glass-card">
-                            <strong>Cafette</strong>
-                            <div class="muted" style="margin-top:6px">Coffee, tea, pastries and light snacks — relax and enjoy.</div>
-                        </div>
-                    </div>
+    <!-- Menu -->
+    <section id="menu">
+        <div class="container">
+            <div class="text-center" style="text-align: center; margin-bottom: 40px;">
+                <h2>Our Menu</h2>
+                <div class="filters">
+                    <button class="filter-btn active" data-category="all">All</button>
+                    <button class="filter-btn" data-category="fast-food">Fast Food</button>
+                    <button class="filter-btn" data-category="lunch">Lunch Food</button>
+                    <button class="filter-btn" data-category="drinks">Drinks</button>
+                    <button class="filter-btn" data-category="cafette">Cafette</button>
                 </div>
             </div>
 
-            <aside class="card">
-                <div class="info">
-                    <div style="font-weight:700">Visit us</div>
-                    <div class="muted">Hamarweyne, Mogadishu, Somalia</div>
-                    <div class="hours">
-                        <small class="muted">Hours</small>
-                        <div style="margin-top:6px">Everyday · 09:00 — 23:00</div>
-                    </div>
-                    <div style="margin-top:12px">
-                        <a class="muted" href="https://www.google.com/maps/search/?api=1&query=Hamarweyne%20Mogadishu%20Somalia" target="_blank" rel="noopener">Open in Google Maps</a>
-                    </div>
-                    <div style="margin-top:12px" class="muted">Phone: +252 68 245 6085</div>
-                </div>
-            </aside>
-        </section>
+            <div id="menu-grid" class="menu-grid">
+                <!-- Items injected via JS -->
+            </div>
+        </div>
+    </section>
 
-        <section>
-            <h2>Menu highlights</h2>
-            <div class="grid" style="margin-top:12px">
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=800&q=70" alt="Burger">
-                    <div>
-                        <div style="font-weight:700">Classic Burger</div>
-                        <div class="muted">Beef patty, lettuce, tomato, house sauce</div>
-                        <div class="price">5000 SOS</div>
-                    </div>
+    <!-- Gallery -->
+    <section id="gallery">
+        <div class="container">
+            <div class="text-center" style="text-align: center; margin-bottom: 40px;">
+                <h2>Atmosphere</h2>
+                <p style="color: var(--text-muted);">A glimpse into our daily life at Cadan.</p>
+            </div>
+            <div class="menu-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+                <div class="menu-card" style="cursor: zoom-in;" onclick="openLightbox(0)">
+                    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80"
+                        alt="Interior" style="height: 250px; width: 100%; object-fit: cover;">
                 </div>
-
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1604908177522-7b0c5dd8b3b0?auto=format&fit=crop&w=800&q=70" alt="Fried chicken">
-                    <div>
-                        <div style="font-weight:700">Crispy Fried Chicken</div>
-                        <div class="muted">Spiced, crunchy, served with fries</div>
-                        <div class="price">6000 SOS</div>
-                    </div>
+                <div class="menu-card" style="cursor: zoom-in;" onclick="openLightbox(1)">
+                    <img src="https://images.unsplash.com/photo-1543353071-087092ec393a?auto=format&fit=crop&w=800&q=80"
+                        alt="Food" style="height: 250px; width: 100%; object-fit: cover;">
                 </div>
-
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=70" alt="Local dish">
-                    <div>
-                        <div style="font-weight:700">Lung Foods Special</div>
-                        <div class="muted">Chef's local plate — ask for today's special</div>
-                        <div class="price">Varies</div>
-                    </div>
+                <div class="menu-card" style="cursor: zoom-in;" onclick="openLightbox(2)">
+                    <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=800&q=80"
+                        alt="Coffee" style="height: 250px; width: 100%; object-fit: cover;">
                 </div>
-
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=70" alt="Cafette coffee">
-                    <div>
-                        <div style="font-weight:700">Cafette Coffee</div>
-                        <div class="muted">Freshly brewed — espresso & specialty coffees</div>
-                        <div class="price">1000 SOS</div>
-                    </div>
+                <div class="menu-card" style="cursor: zoom-in;" onclick="openLightbox(3)">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80"
+                        alt="Service" style="height: 250px; width: 100%; object-fit: cover;">
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- New gallery with nicer sample images -->
-        <section id="gallery" class="menu-section">
-            <h2>Gallery</h2>
-            <div class="gallery-grid" style="margin-top:12px">
-                <div class="gallery-card card">
-                    <img class="gallery-img" src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=900&q=80" alt="Interior view of Cadan restaurant" data-full="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=80" data-caption="Cozy interior seating">
-                </div>
-                <div class="gallery-card card">
-                    <img class="gallery-img" src="https://images.unsplash.com/photo-1543353071-087092ec393a?auto=format&fit=crop&w=900&q=80" alt="Dish example at Cadan restaurant" data-full="https://images.unsplash.com/photo-1543353071-087092ec393a?auto=format&fit=crop&w=1600&q=80" data-caption="Signature dish">
-                </div>
-                <div class="gallery-card card">
-                    <img class="gallery-img" src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=900&q=80" alt="Coffee and pastries" data-full="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=1600&q=80" data-caption="Coffee & pastries">
-                </div>
-                <div class="gallery-card card">
-                    <img class="gallery-img" src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80" alt="Takeaway and packaging" data-full="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=80" data-caption="Takeaway packaging">
-                </div>
-            </div>
-        </section>
+    <!-- Location & Contact -->
+    <section id="location" style="background: white;">
+        <div class="container">
+            <div class="footer-grid" style="margin: 0; align-items: start;">
+                <div>
+                    <h2>Visit Us</h2>
+                    <p style="margin-bottom: 24px; color: var(--text-muted);">
+                        Hamarweyne, Mogadishu<br>
+                        <strong>Open Daily:</strong> 09:00 — 23:00
+                    </p>
 
-        <section id="about" class="menu-section">
-            <h2>About Cadan restaurant</h2>
-            <p class="muted">Cadan restaurant provides quick and friendly service to locals and visitors in Hamarweyne. We focus on simple, well-seasoned fast foods, comforting lung foods, and a small cafette for coffee and snacks. We aim for fresh ingredients, fair prices, and a clean welcoming space.</p>
-        </section>
+                    <div style="display: grid; gap: 16px; margin-bottom: 24px;">
+                        <a href="tel:+252613712222"
+                            style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit;">
+                            <span
+                                style="background: var(--accent); width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center;">📞</span>
+                            <span>+252 61 371 2222</span>
+                        </a>
+                        <a href="mailto:cadanrestaurant615@gmail.com"
+                            style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit;">
+                            <span
+                                style="background: var(--accent); width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center;">✉️</span>
+                            <span>cadanrestaurant615@gmail.com</span>
+                        </a>
+                    </div>
 
-        <section id="contact" class="menu-section">
-            <h2>Contact & Reservation</h2>
-            <div class="grid" style="align-items:start">
-                <div class="card">
-                    <iframe class="map" src="https://www.google.com/maps?q=Hamarweyne+Mogadishu+Somalia&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Cadan restaurant location"></iframe>
-                </div>
-
-                <div class="card">
-                    <form id="contactForm" action="mailto:info@cadan-restaurant.example" method="post" enctype="text/plain">
-                        <label>
-                            <div class="muted">Name</div>
-                            <input type="text" name="name" required placeholder="Your name">
-                        </label>
-                        <label>
-                            <div class="muted">Phone or Email</div>
-                            <input type="text" name="contact" required placeholder="Phone or email">
-                        </label>
-                        <label>
-                            <div class="muted">Message</div>
-                            <textarea name="message" rows="4" placeholder="Reservation details or questions"></textarea>
-                        </label>
-                        <div class="flex" style="margin-top:8px">
-                            <button type="submit">Send</button>
-                            <a class="muted" href="tel:+252682456085" style="text-decoration:none;padding:8px 10px;border-radius:8px;border:1px solid #eee">Call us</a>
+                    <form id="contact-form" style="background: var(--bg-body); padding: 24px; border-radius: 16px;">
+                        <h4 style="margin-bottom: 16px; color: var(--secondary);">Send a Message</h4>
+                        <div style="display: grid; gap: 12px;">
+                            <input type="text" placeholder="Your Name"
+                                style="padding: 12px; border: 1px solid #ddd; border-radius: 8px; width: 100%;">
+                            <input type="tel" placeholder="Phone Number"
+                                style="padding: 12px; border: 1px solid #ddd; border-radius: 8px; width: 100%;">
+                            <textarea placeholder="Message" rows="3"
+                                style="padding: 12px; border: 1px solid #ddd; border-radius: 8px; width: 100%; font-family: inherit;"></textarea>
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
                         </div>
                     </form>
                 </div>
+                <div style="height: 500px; background: #eee; border-radius: 24px; overflow: hidden; margin-top: 24px;">
+                    <iframe class="map-frame"
+                        src="https://www.google.com/maps?q=Hamarweyne+Mogadishu+Somalia&output=embed" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <footer>
-            <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
-                <div>© <strong>Cadan restaurant</strong> — Hamarweyne, Mogadishu</div>
-                <div class="muted">Made locally · Open daily 09:00–23:00</div>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo-wrapper" style="color: white; margin-bottom: 16px;">
+                        <img src="assets/logo.png" alt="Logo" style="height: 40px; filter: brightness(0) invert(1);">
+                        Cadan Restaurant
+                    </div>
+                    <p>Serving the best food in Mogadishu. Fresh, local, and delicious.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul style="opacity: 0.8; line-height: 2;">
+                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#location">Location</a></li>
+                    </ul>
+                </div>
             </div>
-        </footer>
+            <div
+                style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; text-align: center; color: rgba(255,255,255,0.5); font-size: 0.9rem;">
+                &copy; 2025 Cadan Restaurant. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="cart-modal">
+        <aside class="cart-sidebar">
+            <div class="cart-header">
+                <h3>Your Order</h3>
+                <button id="close-modal"
+                    style="background:none; border:none; font-size:1.5rem; cursor:pointer;">&times;</button>
+            </div>
+
+            <div id="cart-items" class="cart-items">
+                <!-- Cart items -->
+            </div>
+
+            <div class="cart-footer">
+                <div class="total-row">
+                    <span>Total</span>
+                    <span id="cart-total">$0.00</span>
+                </div>
+                <button id="checkout-btn" class="btn btn-primary" style="width: 100%;">Checkout on WhatsApp</button>
+            </div>
+        </aside>
     </div>
 
-    <!-- Lightbox -->
-    <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-label="Image preview">
-        <button class="close" aria-label="Close">&times;</button>
-        <button class="nav prev" aria-label="Previous" title="Previous">&#8249;</button>
-        <img src="" alt="">
-        <div class="caption"></div>
-        <button class="nav next" aria-label="Next" title="Next">&#8250;</button>
+    <!-- Contact Options Modal -->
+    <div id="contact-options-modal" class="cart-modal" style="justify-content: center; align-items: center;">
+        <div class="menu-card animate-fade-in"
+            style="padding: 32px; width: 90%; max-width: 400px; position: relative; background: white; border-radius: 24px; box-shadow: 0 20px 60px rgba(0,0,0,0.2);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+                <h3 style="margin: 0;">Get in Touch</h3>
+                <button onclick="document.getElementById('contact-options-modal').classList.remove('open')"
+                    style="background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--text-muted);">&times;</button>
+            </div>
+
+            <div style="display: grid; gap: 16px;">
+                <a href="tel:+252613712222" class="btn btn-primary" style="justify-content: center; width: 100%;">
+                    <span>📞</span> Call (+252 61 371 2222)
+                </a>
+                <a href="mailto:cadanrestaurant615@gmail.com" class="btn btn-outline"
+                    style="justify-content: center; width: 100%; border-color: var(--secondary); color: var(--secondary);">
+                    <span>✉️</span> Email Us
+                </a>
+                <a href="https://wa.me/252613712222" target="_blank" class="btn btn-outline"
+                    style="justify-content: center; width: 100%; border-color: #25D366; color: #128C7E; background: #f0fff4;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 8px;">
+                        <path
+                            d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2ZM12.05 3.66C14.25 3.66 16.31 4.51 17.87 6.07C19.42 7.62 20.28 9.68 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19.01L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.66 12.05 3.66ZM16.37 14.37C16.13 14.25 14.96 13.67 14.74 13.6C14.53 13.51 14.36 13.48 14.21 13.72C14.05 13.95 13.6 14.48 13.46 14.64C13.33 14.81 13.18 14.82 12.94 14.7C12.7 14.58 11.93 14.33 11.02 13.52C10.31 12.89 9.84 12.11 9.72 11.9C9.6 11.69 9.7 11.58 9.82 11.46C9.93 11.35 10.07 11.18 10.19 11.04C10.31 10.89 10.35 10.79 10.43 10.63C10.51 10.47 10.47 10.32 10.4 10.19C10.34 10.05 9.88 8.94 9.69 8.48C9.5 8.04 9.3 8.1 9.16 8.09L8.74 8.08C8.6 8.08 8.35 8.13 8.14 8.36C7.93 8.59 7.33 9.15 7.33 10.29C7.33 11.43 8.15 12.53 8.28 12.69C8.4 12.84 10.01 15.32 12.47 16.38C13.06 16.63 13.51 16.79 13.87 16.9C14.46 17.09 15.01 17.06 15.44 17C15.93 16.93 16.94 16.39 17.15 15.8C17.37 15.21 17.37 14.71 17.3 14.6C17.24 14.5 17.09 14.43 16.85 14.31L16.37 14.37Z" />
+                    </svg>
+                    WhatsApp (+252 61 371 2222)
+                </a>
+            </div>
+        </div>
     </div>
 
+    <!-- Contact Button Logic -->
     <script>
-        // confirm before submitting mailto form
-        document.getElementById('contactForm').addEventListener('submit', function(e){
-            var msg = this.message.value.trim();
-            if(!msg){
-                if(!confirm('Send contact without message?')){ e.preventDefault(); }
-            }
+        document.getElementById('header-contact-btn').addEventListener('click', () => {
+            document.getElementById('contact-options-modal').classList.add('open');
         });
-
-        // lightweight gallery lightbox
-        (function(){
-            var imgs = Array.from(document.querySelectorAll('.gallery-img'));
-            var lb = document.getElementById('lightbox');
-            var lbImg = lb.querySelector('img');
-            var caption = lb.querySelector('.caption');
-            var closeBtn = lb.querySelector('.close');
-            var prevBtn = lb.querySelector('.prev');
-            var nextBtn = lb.querySelector('.next');
-            var currentIndex = -1;
-
-            function open(index){
-                var el = imgs[index];
-                if(!el) return;
-                lbImg.src = el.dataset.full || el.src;
-                lbImg.alt = el.alt || '';
-                caption.textContent = el.dataset.caption || el.alt || '';
-                lb.classList.add('open');
-                lb.setAttribute('aria-hidden','false');
-                currentIndex = index;
-            }
-            function close(){
-                lb.classList.remove('open');
-                lb.setAttribute('aria-hidden','true');
-                lbImg.src = '';
-                currentIndex = -1;
-            }
-            function showNext(delta){
-                if(currentIndex < 0 || imgs.length === 0) return;
-                var next = (currentIndex + delta + imgs.length) % imgs.length;
-                open(next);
-            }
-
-            imgs.forEach(function(img, i){
-                img.style.cursor = 'zoom-in';
-                img.addEventListener('click', function(){ open(i); });
-            });
-            closeBtn.addEventListener('click', close);
-            lb.addEventListener('click', function(e){
-                if(e.target === lb) close();
-            });
-            document.addEventListener('keydown', function(e){
-                if(lb.classList.contains('open')){
-                    if(e.key === 'Escape') close();
-                    if(e.key === 'ArrowRight') showNext(1);
-                    if(e.key === 'ArrowLeft') showNext(-1);
-                }
-            });
-            prevBtn.addEventListener('click', function(e){ e.stopPropagation(); showNext(-1); });
-            nextBtn.addEventListener('click', function(e){ e.stopPropagation(); showNext(1); });
-        })();
+        document.getElementById('hero-contact-btn').addEventListener('click', () => {
+            document.getElementById('contact-options-modal').classList.add('open');
+        });
     </script>
+    <script type="module" src="js/main.js"></script>
 </body>
+
 </html>
